@@ -5,12 +5,13 @@ createApp({
     return {
       randomEmail: "",
       emails: [],
+      numberOfEmails: 0,
     };
   },
   methods: {
     generateEmail() {
       this.emails = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < this.numberOfEmails; i++) {
         axios
           .get("https://flynn.boolean.careers/exercises/api/random/mail")
           .then((resp) => {

@@ -11,8 +11,13 @@
   <body>
     <div id="app">
       <button @click="generateEmail">generate email</button>
+      <input type="number" v-model="numberOfEmails" />
       <ul>
-        <li v-if="emails.length===10" v-for="email in emails" :key="email">
+        <li
+          v-if="emails.length===numberOfEmails"
+          v-for="email in emails"
+          :key="email"
+        >
           {{ email }}
         </li>
       </ul>
