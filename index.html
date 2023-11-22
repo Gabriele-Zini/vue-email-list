@@ -10,17 +10,13 @@
   </head>
   <body>
     <div id="app">
-      <button @click="generateEmail">generate email</button>
+      <button @click="generateEmailAndTimer">generate email</button>
       <input type="number" v-model="numberOfEmails" />
-      <ul>
-        <li
-          v-if="emails.length===numberOfEmails"
-          v-for="email in emails"
-          :key="email"
-        >
-          {{ email }}
-        </li>
+      <div>{{formattedTime}}</div>
+      <ul v-if="emails.length===numberOfEmails">
+        <li v-for="email in emails" :key="email">{{ email }}</li>
       </ul>
+      <p v-if="emails.length>0 && emails.length<numberOfEmails">loading...</p>
     </div>
 
     <script src="./js/script.js"></script>
